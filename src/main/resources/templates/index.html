@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Practice identifying phishing messages in a safe simulator.">
+<title>PhishSense — Phishing Awareness Simulator</title><link rel="stylesheet" th:href="@{/styles.css}"></head>
+<body><header class="site-header"><nav class="container nav" aria-label="Primary"><a class="brand" th:href="@{/}"><span class="brand-mark">PS</span> PhishSense</a><a class="text-link" th:href="@{/score}">Score</a></nav></header>
+<main><section class="hero container"><p class="eyebrow">SAFE, HANDS-ON TRAINING</p><h1>Would you click it?</h1>
+<p class="hero-copy">Inspect realistic messages, make your call, and learn the signals that separate a routine email from a phishing attempt.</p>
+<div class="notice"><strong>Privacy first.</strong> No emails are sent and no credentials or personal data are collected.</div>
+<div class="stats" aria-label="Training progress"><div><strong th:text="${state.totalAnswered}">0</strong><span>Completed</span></div><div><strong th:text="${totalScenarios}">4</strong><span>Total</span></div><div><strong th:text="${state.accuracyPercentage+'%'}">0%</strong><span>Accuracy</span></div></div></section>
+<section class="container scenario-section"><div class="section-heading"><div><p class="eyebrow">INBOX</p><h2>Training scenarios</h2></div>
+<form th:if="${state.totalAnswered>0}" th:action="@{/reset}" method="post" onsubmit="return confirm('Reset all training progress?')"><button class="button secondary">Reset progress</button></form></div>
+<p class="section-copy">Open a message and classify it. Sender details stay hidden here so you can approach each one without spoilers.</p>
+<div class="scenario-grid"><article class="scenario-card" th:each="s,iter:${scenarios}">
+<div class="card-topline"><span class="number" th:text="${#numbers.formatInteger(iter.index+1,2)}">01</span>
+<span class="status" th:classappend="${state.answeredCorrectly.containsKey(s.id())?(state.answeredCorrectly.get(s.id())?' correct':' incorrect'):''}" th:text="${state.answeredCorrectly.containsKey(s.id())?(state.answeredCorrectly.get(s.id())?'Correct':'Review'):'Not started'}">Not started</span></div>
+<h3 th:text="${s.title()}">Title</h3><p th:text="${s.difficulty().label()+' difficulty'}"></p>
+<a class="button" th:href="@{'/scenario/'+${s.id()}}" th:text="${state.answeredCorrectly.containsKey(s.id())?'Review scenario':'Inspect message'}">Inspect</a></article></div></section></main>
+<footer class="container footer">Built for defensive security education. Always verify through an official app, portal, or known contact channel.</footer></body></html>

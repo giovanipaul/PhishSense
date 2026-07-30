@@ -1,0 +1,1 @@
+package com.example.phishsim; public enum Difficulty{BEGINNER("Beginner"),INTERMEDIATE("Intermediate"),ADVANCED("Advanced");private final String label;Difficulty(String l){label=l;}public String label(){return label;}}

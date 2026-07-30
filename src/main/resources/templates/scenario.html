@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title th:text="${scenario.title()+' — PhishSense'}">Scenario</title><link rel="stylesheet" th:href="@{/styles.css}"></head>
+<body><header class="site-header"><nav class="container nav"><a class="brand" th:href="@{/}"><span class="brand-mark">PS</span> PhishSense</a><span class="nav-progress" th:text="${state.totalAnswered+' of '+totalScenarios+' complete'}"></span></nav></header>
+<main class="container narrow"><a class="back-link" th:href="@{/}">← All scenarios</a><div class="page-heading"><p class="eyebrow" th:text="${scenario.difficulty().label()+' SCENARIO'}"></p><h1 th:text="${scenario.title()}"></h1><p>Inspect the message carefully, then decide how you would classify it.</p></div>
+<article class="email-card" aria-label="Simulated email"><div class="email-toolbar"><span></span><span></span><span></span><strong>SIMULATED EMAIL</strong></div>
+<dl class="email-headers"><div><dt>From</dt><dd><strong th:text="${scenario.fromDisplay()}"></strong> &lt;<span th:text="${scenario.fromEmail()}"></span>&gt;</dd></div><div><dt>Subject</dt><dd th:text="${scenario.subject()}"></dd></div></dl><div class="email-body" th:text="${scenario.body()}"></div></article>
+<form th:unless="${param.result}" class="decision-card" th:action="@{'/scenario/'+${scenario.id()}+'/answer'}" method="post"><fieldset><legend>What’s your call?</legend><p>Select the answer that best reflects the evidence.</p><div class="choices">
+<label class="choice"><input type="radio" name="choice" value="PHISHING" required><span><strong>Phishing</strong><small>This message is deceptive or unsafe.</small></span></label>
+<label class="choice"><input type="radio" name="choice" value="LEGIT" required><span><strong>Legitimate</strong><small>This message appears authentic and safe.</small></span></label></div><button class="button">Check my answer</button></fieldset></form>
+<section class="result-card" th:if="${param.result}" aria-live="polite" th:classappend="${state.answeredCorrectly.get(scenario.id())?' success':' needs-review'}">
+<p class="eyebrow" th:text="${state.answeredCorrectly.get(scenario.id())?'CORRECT':'KEEP INVESTIGATING'}"></p>
+<h2 th:text="${state.answeredCorrectly.get(scenario.id())?'Good call.':'Not quite—but this is how you learn.'}"></h2>
+<p>Ground truth: <strong th:text="${scenario.isPhishing()?'Phishing':'Legitimate'}"></strong></p><h3>Evidence to consider</h3><ul><li th:each="i:${scenario.indicators()}" th:text="${i}"></li></ul>
+<div class="safe-action"><strong>Safest next step</strong><span th:text="${scenario.safeAction()}"></span></div><div class="result-actions"><a class="button" th:href="@{'/scenario/'+${scenario.id()}+'/next'}">Next scenario →</a><a class="button secondary" th:href="@{/score}">View score</a></div></section></main>
+<footer class="container footer">Never enter a password after following an unexpected message link.</footer></body></html>

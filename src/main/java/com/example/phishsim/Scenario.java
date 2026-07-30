@@ -1,0 +1,1 @@
+package com.example.phishsim;import java.util.List;public record Scenario(int id,String title,String fromDisplay,String fromEmail,String subject,String body,boolean isPhishing,List<String> indicators,String safeAction,Difficulty difficulty){}

@@ -1,0 +1,9 @@
+package com.example.phishsim;
+import jakarta.servlet.http.HttpSession;import org.springframework.http.HttpStatus;import org.springframework.stereotype.Controller;import org.springframework.ui.Model;import org.springframework.web.bind.annotation.*;import org.springframework.web.server.ResponseStatusException;import java.util.*;
+@Controller public class SimulatorController{private final ScenarioRepository repo;public SimulatorController(ScenarioRepository r){repo=r;}
+@GetMapping("/")public String home(Model m,HttpSession h){m.addAttribute("scenarios",repo.findAll());m.addAttribute("state",state(h));m.addAttribute("totalScenarios",repo.findAll().size());return"index";}
+@GetMapping("/scenario/{id}")public String scenario(@PathVariable int id,Model m,HttpSession h){m.addAttribute("scenario",find(id));m.addAttribute("state",state(h));m.addAttribute("totalScenarios",repo.findAll().size());return"scenario";}
+@PostMapping("/scenario/{id}/answer")public String answer(@PathVariable int id,@RequestParam AnswerChoice choice,HttpSession h){Scenario s=find(id);state(h).recordAnswer(id,(choice==AnswerChoice.PHISHING)==s.isPhishing());return"redirect:/scenario/"+id+"?result=1";}
+@GetMapping("/scenario/{id}/next")public String next(@PathVariable int id){return repo.findAll().stream().dropWhile(x->x.id()!=id).skip(1).findFirst().map(x->"redirect:/scenario/"+x.id()).orElse("redirect:/score");}
+@PostMapping("/reset")public String reset(HttpSession h){state(h).reset();return"redirect:/";}@GetMapping("/score")public String score(Model m,HttpSession h){m.addAttribute("state",state(h));m.addAttribute("totalScenarios",repo.findAll().size());return"score";}
+private Scenario find(int id){return repo.findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));}private TrainingState state(HttpSession h){if(h.getAttribute("state")instanceof TrainingState s)return s;var s=new TrainingState();h.setAttribute("state",s);return s;}}

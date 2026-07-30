@@ -1,0 +1,16 @@
+name: Feature request
+description: Suggest a safe training improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: proposal
+    attributes: {label: Proposed solution}
+    validations: {required: true}
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety
+      options:
+        - label: This does not collect credentials or send phishing messages.
+          required: true

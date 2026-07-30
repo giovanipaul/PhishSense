@@ -1,0 +1,2 @@
+package com.example.phishsim;import org.springframework.http.HttpStatus;import org.springframework.web.bind.MissingServletRequestParameterException;import org.springframework.web.bind.annotation.*;
+@ControllerAdvice public class WebErrorHandler{@ExceptionHandler({MissingServletRequestParameterException.class,IllegalArgumentException.class})@ResponseStatus(HttpStatus.BAD_REQUEST)public String bad(){return"error/400";}}
