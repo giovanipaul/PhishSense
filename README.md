@@ -5,6 +5,8 @@
 
 PhishSense is a privacy-friendly phishing awareness simulator. Learners inspect realistic—but fictional—email scenarios, classify each message, and receive immediate evidence-based feedback.
 
+![PhishSense training dashboard](docs/images/phishsense-home.png)
+
 > [!IMPORTANT]
 > This project is strictly for defensive education. It does not send or receive email, collect credentials, track users, or connect to scenario domains.
 
