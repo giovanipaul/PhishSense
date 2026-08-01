@@ -2,6 +2,7 @@
 
 [![Java 17](https://img.shields.io/badge/Java-17-007396)](https://adoptium.net/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/giovanipaul/PhishSense)
 
 PhishSense is a privacy-friendly phishing awareness simulator. Learners inspect realistic—but fictional—email scenarios, classify each message, and receive immediate evidence-based feedback.
 
@@ -38,6 +39,15 @@ java -jar target/phish-awareness-sim-1.0.0-SNAPSHOT.jar
 ```
 
 Reports are generated under `target/surefire-reports/` and `target/site/jacoco/`.
+
+## Deploy
+
+The repository includes a production-ready multi-stage Docker build and a Render Blueprint. Click **Deploy to Render** above, review the free web service, and approve the Blueprint.
+
+Render uses the platform-provided `PORT`, checks `/` for service health, and deploys updates from `main` only after CI succeeds.
+
+> [!NOTE]
+> Render's free web services can spin down while idle, so the first request after a quiet period may take longer.
 
 ## Customize scenarios
 
