@@ -2,6 +2,7 @@
 
 [![Java 17](https://img.shields.io/badge/Java-17-007396)](https://adoptium.net/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Open_PhishSense-42d3a2)](https://phishsense-7ado.onrender.com)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/giovanipaul/PhishSense)
 
 PhishSense is a privacy-friendly phishing awareness simulator. Learners inspect realistic—but fictional—email scenarios, classify each message, and receive immediate evidence-based feedback.
