@@ -16,7 +16,7 @@ PhishSense is a privacy-friendly phishing awareness simulator. Learners inspect 
 
 - Scenarios across multiple difficulty levels
 - Evidence-based explanations and safe-action guidance
-- Session-only completion and accuracy tracking with a personalized difficulty breakdown
+- Private progress saved for 30 days in an HttpOnly, first-party cookie; no account, database, or analytics
 - Responsive, keyboard-accessible interface
 - Reserved `.invalid` and `.example` domains
 - Defensive HTTP headers and privacy-preserving session settings
@@ -56,6 +56,6 @@ Edit [`ScenarioRepository.java`](src/main/java/com/example/phishsim/ScenarioRepo
 
 ## Privacy and limitations
 
-Progress exists only in the server-side HTTP session. There is no database, analytics, authentication, outbound email, or credential field. This is an awareness exercise—not an email-security scanner—and a single indicator rarely proves intent.
+Progress is saved only in a first-party, HttpOnly browser cookie for up to 30 days. There is no database, analytics, authentication, outbound email, or credential field. Resetting progress removes the cookie. This is an awareness exercise—not an email-security scanner—and a single indicator rarely proves intent.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the [MIT License](LICENSE).
