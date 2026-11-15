@@ -16,7 +16,9 @@ PhishSense is a privacy-friendly phishing awareness simulator. Learners inspect 
 
 - Scenarios across multiple difficulty levels
 - Evidence-based explanations and safe-action guidance
-- Session-only completion and accuracy tracking
+- Private progress saved for 30 days in an HttpOnly, first-party cookie; no account, database, or analytics
+- Focused review path for scenarios a learner previously missed
+- Personalized “signals to revisit” guidance for missed phishing messages
 - Responsive, keyboard-accessible interface
 - Reserved `.invalid` and `.example` domains
 - Defensive HTTP headers and privacy-preserving session settings
@@ -52,10 +54,10 @@ Render uses the platform-provided `PORT`, checks `/` for service health, and dep
 
 ## Customize scenarios
 
-Edit [`ScenarioRepository.java`](src/main/java/com/example/phishsim/ScenarioRepository.java). Use a unique ID, reserved domains, balanced evidence, and a safe next action. Never add credential collection, active phishing infrastructure, real personal information, or outbound messaging.
+Edit [`ScenarioRepository.java`](src/main/java/com/example/phishsim/ScenarioRepository.java). Use a unique ID, reserved domains, balanced evidence, and a safe next action. The catalog validates that each difficulty has both phishing and legitimate examples, that phishing links use `.invalid`, and that sender domains are reserved. Never add credential collection, active phishing infrastructure, real personal information, or outbound messaging.
 
 ## Privacy and limitations
 
-Progress exists only in the server-side HTTP session. There is no database, analytics, authentication, outbound email, or credential field. This is an awareness exercise—not an email-security scanner—and a single indicator rarely proves intent.
+Progress is saved only in a first-party, HttpOnly browser cookie for up to 30 days. There is no database, analytics, authentication, outbound email, or credential field. Resetting progress removes the cookie. This is an awareness exercise—not an email-security scanner—and a single indicator rarely proves intent.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the [MIT License](LICENSE).
