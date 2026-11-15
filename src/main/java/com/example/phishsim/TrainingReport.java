@@ -6,12 +6,13 @@ import java.util.Map;
 
 /**
  * A session-only summary of a learner's answers. No report data is stored outside
- * the current HTTP session.
+ * the learner's first-party browser storage.
  */
 public record TrainingReport(
         List<DifficultyPerformance> difficultyBreakdown,
         int missedPhishing,
         int missedLegitimate,
+        List<String> phishingSignalsToReview,
         String focusMessage
 ) {
 
@@ -29,8 +30,15 @@ public record TrainingReport(
                 .filter(scenario -> !scenario.isPhishing())
                 .filter(scenario -> Boolean.FALSE.equals(answers.get(scenario.id())))
                 .count();
+        List<String> phishingSignals = scenarios.stream()
+                .filter(Scenario::isPhishing)
+                .filter(scenario -> Boolean.FALSE.equals(answers.get(scenario.id())))
+                .flatMap(scenario -> scenario.indicators().stream())
+                .distinct()
+                .limit(6)
+                .toList();
 
-        return new TrainingReport(breakdown, missedPhishing, missedLegitimate,
+        return new TrainingReport(breakdown, missedPhishing, missedLegitimate, phishingSignals,
                 focusMessage(state.getTotalAnswered(), missedPhishing, missedLegitimate));
     }
 

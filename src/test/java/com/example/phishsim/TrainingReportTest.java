@@ -19,6 +19,7 @@ class TrainingReportTest {
 
         assertThat(report.missedPhishing()).isEqualTo(1);
         assertThat(report.missedLegitimate()).isEqualTo(1);
+        assertThat(report.phishingSignalsToReview()).contains("Lookalike domain (micros0ft with a zero)");
         assertThat(report.difficultyBreakdown())
                 .extracting(TrainingReport.DifficultyPerformance::label,
                         TrainingReport.DifficultyPerformance::answered,
@@ -34,6 +35,7 @@ class TrainingReportTest {
         var report = TrainingReport.from(new TrainingState(), repository.findAll());
 
         assertThat(report.focusMessage()).contains("Complete a scenario");
+        assertThat(report.phishingSignalsToReview()).isEmpty();
         assertThat(report.difficultyBreakdown())
                 .allSatisfy(difficulty -> assertThat(difficulty.accuracyPercentage()).isZero());
     }

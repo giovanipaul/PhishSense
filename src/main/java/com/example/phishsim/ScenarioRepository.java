@@ -270,6 +270,10 @@ public class ScenarioRepository {
             )
     );
 
+    public ScenarioRepository() {
+        ScenarioCatalogValidator.validate(scenarios);
+    }
+
     public List<Scenario> findAll() {
         return scenarios;
     }
