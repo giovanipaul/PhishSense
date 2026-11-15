@@ -11,5 +11,5 @@
 <p class="eyebrow" th:text="${state.answeredCorrectly.get(scenario.id())?'CORRECT':'KEEP INVESTIGATING'}"></p>
 <h2 th:text="${state.answeredCorrectly.get(scenario.id())?'Good call.':'Not quite—but this is how you learn.'}"></h2>
 <p>Ground truth: <strong th:text="${scenario.isPhishing()?'Phishing':'Legitimate'}"></strong></p><h3>Evidence to consider</h3><ul><li th:each="i:${scenario.indicators()}" th:text="${i}"></li></ul>
-<div class="safe-action"><strong>Safest next step</strong><span th:text="${scenario.safeAction()}"></span></div><div class="result-actions"><a class="button" th:href="@{'/scenario/'+${scenario.id()}+'/next'}">Next scenario →</a><a class="button secondary" th:href="@{/score}">View score</a></div></section></main>
+<div class="safe-action"><strong>Safest next step</strong><span th:text="${scenario.safeAction()}"></span></div><div class="result-actions"><a class="button" th:if="${param.review}" th:href="@{'/review/next/'+${scenario.id()}}">Next missed scenario →</a><a class="button" th:unless="${param.review}" th:href="@{'/scenario/'+${scenario.id()}+'/next'}">Next scenario →</a><a class="button secondary" th:href="@{/score}">View score</a></div></section></main>
 <footer class="container footer">Never enter a password after following an unexpected message link.</footer></body></html>
