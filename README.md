@@ -16,7 +16,7 @@ PhishSense is a privacy-friendly phishing awareness simulator. Learners inspect 
 
 - Scenarios across multiple difficulty levels
 - Evidence-based explanations and safe-action guidance
-- Session-only completion and accuracy tracking
+- Session-only completion and accuracy tracking with a personalized difficulty breakdown
 - Responsive, keyboard-accessible interface
 - Reserved `.invalid` and `.example` domains
 - Defensive HTTP headers and privacy-preserving session settings

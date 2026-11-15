@@ -4,6 +4,7 @@
 
 ### Added
 
+- Personalized learner report with difficulty-level performance and focused review guidance
 - Responsive PhishSense interface, difficulty levels, safe-action guidance, completion, and accuracy
 - Input validation, defensive browser headers, and reserved scenario domains
 - Unit/MVC tests, JaCoCo, Maven Wrapper, CI, Dependabot, and community files
