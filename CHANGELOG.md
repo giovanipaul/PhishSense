@@ -11,6 +11,7 @@
 - Responsive PhishSense interface, difficulty levels, safe-action guidance, completion, and accuracy
 - Input validation, defensive browser headers, and reserved scenario domains
 - Unit/MVC tests, JaCoCo, Maven Wrapper, CI, Dependabot, and community files
+- Scenarios loaded from a `scenarios.json` data file, with 10 new scenarios including QR-code phishing, MFA fatigue, and invoice fraud
 
 ### Changed
 
