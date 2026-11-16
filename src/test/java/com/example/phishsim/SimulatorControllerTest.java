@@ -10,6 +10,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(SimulatorController.class) @Import({ScenarioRepository.class,TrainingProgressCookie.class,SecurityHeadersFilter.class,WebErrorHandler.class})
 class SimulatorControllerTest {
  @Autowired MockMvc mvc;
+ @Autowired ScenarioRepository repo;
+ @Test void homeListsFullCatalog() throws Exception{mvc.perform(get("/")).andExpect(status().isOk()).andExpect(model().attribute("totalScenarios",repo.findAll().size())).andExpect(model().attribute("scenarios",repo.findAll()));}
+ @Test void everyScenarioPageLoads() throws Exception{for(Scenario scenario:repo.findAll()){mvc.perform(get("/scenario/"+scenario.id())).andExpect(status().isOk()).andExpect(view().name("scenario")).andExpect(model().attribute("scenario",scenario));}}
+ @Test void lastScenarioGoesToScore() throws Exception{var scenarios=repo.findAll();int last=scenarios.get(scenarios.size()-1).id();mvc.perform(get("/scenario/"+last+"/next")).andExpect(redirectedUrl("/score"));}
+ @Test void scoreCountsMatchCatalog() throws Exception{mvc.perform(get("/score")).andExpect(status().isOk()).andExpect(model().attribute("totalScenarios",repo.findAll().size()));}
  @Test void pagesLoad() throws Exception{mvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("index"));mvc.perform(get("/scenario/1")).andExpect(status().isOk());mvc.perform(get("/score")).andExpect(status().isOk()).andExpect(model().attributeExists("report"));}
  @Test void answersValidate() throws Exception{mvc.perform(post("/scenario/1/answer").param("choice","PHISHING")).andExpect(redirectedUrl("/scenario/1?result=1")).andExpect(header().string("Set-Cookie",org.hamcrest.Matchers.containsString("phishsense-progress=")));mvc.perform(post("/scenario/1/answer")).andExpect(status().isBadRequest());mvc.perform(post("/scenario/1/answer").param("choice","MAYBE")).andExpect(status().isBadRequest());}
  @Test void missingIs404() throws Exception{mvc.perform(get("/scenario/999")).andExpect(status().isNotFound());}
