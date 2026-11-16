@@ -1,0 +1,373 @@
+[
+  {
+    "id": 1,
+    "title": "Fake account password reset",
+    "fromDisplay": "Account Support",
+    "fromEmail": "security-alert@micros0ft-support.invalid",
+    "subject": "Unusual sign-in activity detected",
+    "body": "Hi,\n\nWe detected unusual sign-in activity. Verify within 24 hours:\n\nhttps://micros0ft-support.invalid/verify",
+    "isPhishing": true,
+    "indicators": [
+      "Lookalike domain (micros0ft with a zero)",
+      "Urgency and threat of suspension",
+      "Generic greeting",
+      "Non-official domain"
+    ],
+    "safeAction": "Open the official portal from a saved bookmark and review recent sign-ins.",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": 2,
+    "title": "University IT maintenance notice",
+    "fromDisplay": "Example University IT",
+    "fromEmail": "helpdesk@university.example",
+    "subject": "Planned maintenance window tonight",
+    "body": "Hello,\n\nAuthentication maintenance is planned tonight from 11:00 PM to 1:00 AM.\nContact the IT Help Desk through the campus portal if issues continue.",
+    "isPhishing": false,
+    "indicators": [
+      "No request for sensitive information",
+      "Expected institutional domain and calm tone",
+      "Known support channel"
+    ],
+    "safeAction": "Confirm maintenance through the university portal or status page.",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": 3,
+    "title": "Package delivery scam",
+    "fromDisplay": "Package Delivery",
+    "fromEmail": "alerts@ups-tracking-secure.invalid",
+    "subject": "Delivery failed: action required",
+    "body": "We could not complete delivery. Confirm your address and pay the re-delivery fee:\n\nhttp://ups-tracking-secure.invalid/update-address",
+    "isPhishing": true,
+    "indicators": [
+      "Unexpected fee",
+      "Unencrypted HTTP link",
+      "Unofficial sender domain",
+      "Pressure to act"
+    ],
+    "safeAction": "Open the carrier's official app and look up the tracking number there.",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": 4,
+    "title": "Informational bank alert",
+    "fromDisplay": "Example Bank Alerts",
+    "fromEmail": "alerts@bank.example",
+    "subject": "New device sign-in detected",
+    "body": "We noticed a sign-in from a new device. If this was you, no action is needed.\nOtherwise, open your banking app. We never ask for your password by email.",
+    "isPhishing": false,
+    "indicators": [
+      "Does not ask for credentials",
+      "Directs you to the official app",
+      "Clear safety reminder"
+    ],
+    "safeAction": "Open the bank's official app directly and review account activity.",
+    "difficulty": "ADVANCED"
+  },
+  {
+    "id": 5,
+    "title": "Payroll direct-deposit change",
+    "fromDisplay": "Payroll Services",
+    "fromEmail": "payroll-update@employee-payments.invalid",
+    "subject": "Direct deposit verification required",
+    "body": "Your next paycheck is on hold because your banking details could not be verified.\nConfirm your routing number and account information before 3:00 PM:\n\nhttps://employee-payments.invalid/direct-deposit",
+    "isPhishing": true,
+    "indicators": [
+      "Requests sensitive banking information",
+      "Threatens to delay a paycheck",
+      "Uses an unfamiliar external domain",
+      "Imposes an unusually short deadline"
+    ],
+    "safeAction": "Contact payroll using the number in the employee directory, not the message.",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": 6,
+    "title": "Routine benefits enrollment reminder",
+    "fromDisplay": "Example Company People Team",
+    "fromEmail": "people-team@company.example",
+    "subject": "Open enrollment closes Friday",
+    "body": "Open enrollment closes Friday at 5:00 PM. Review your current elections in the\nemployee portal. If you need help, attend Thursday's benefits Q&A or contact the\nPeople Team through the company directory.",
+    "isPhishing": false,
+    "indicators": [
+      "Uses the expected company domain",
+      "Directs employees to the known internal portal",
+      "Provides established support options",
+      "Does not request information by email"
+    ],
+    "safeAction": "Navigate to the employee portal from the company intranet to review benefits.",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": 7,
+    "title": "Unexpected shared document",
+    "fromDisplay": "Project Collaboration",
+    "fromEmail": "sharing@cloud-docs-notice.invalid",
+    "subject": "A confidential document was shared with you",
+    "body": "A confidential document has been shared with your account.\n\nSign in to view it before access expires:\nhttps://cloud-docs-notice.invalid/shared/quarterly-review",
+    "isPhishing": true,
+    "indicators": [
+      "No sender or project context",
+      "Uses a generic file-sharing domain",
+      "Creates urgency with expiring access",
+      "Requests a sign-in after an unexpected share"
+    ],
+    "safeAction": "Open the organization's approved document service directly and check shared files.",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": 8,
+    "title": "Security team MFA notice",
+    "fromDisplay": "Example Company Security",
+    "fromEmail": "security@company.example",
+    "subject": "Multiple sign-in prompts reported",
+    "body": "We are investigating reports of unexpected sign-in approval prompts.\nDo not approve a prompt you did not initiate. Report unexpected prompts with the\nSecurity button in the company portal. No reply to this message is required.",
+    "isPhishing": false,
+    "indicators": [
+      "Provides preventive guidance without requesting approval",
+      "Uses the expected company domain",
+      "Directs reports through a known internal channel",
+      "Does not include a sign-in link"
+    ],
+    "safeAction": "Reject unexpected prompts and report them through the official security channel.",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": 9,
+    "title": "Executive gift-card request",
+    "fromDisplay": "Jordan Lee, CEO",
+    "fromEmail": "jordan.lee.ceo@executive-mail.invalid",
+    "subject": "Need a quick favor before my meeting",
+    "body": "I'm heading into a meeting and need you to purchase six gift cards for a client.\nSend the card numbers and PINs by replying to this email. Please keep this between us.\n\nI need them within the hour.\n\n—Jordan\nhttps://executive-mail.invalid/request",
+    "isPhishing": true,
+    "indicators": [
+      "Unusual financial request from an executive",
+      "Requests gift-card numbers and PINs",
+      "Demands secrecy and urgency",
+      "Sender address does not use the company domain"
+    ],
+    "safeAction": "Verify the request with the executive through a known phone number or assistant.",
+    "difficulty": "ADVANCED"
+  },
+  {
+    "id": 10,
+    "title": "Completed expense report receipt",
+    "fromDisplay": "Example Company Expenses",
+    "fromEmail": "expenses@company.example",
+    "subject": "Expense report ER-1042 approved",
+    "body": "Expense report ER-1042 has been approved. The reimbursement will appear in your\nnext scheduled payment. You can view the report from the Expenses section of the\nemployee portal. No action is required.",
+    "isPhishing": false,
+    "indicators": [
+      "References a specific report number",
+      "Does not request payment or credentials",
+      "Directs the user to the known employee portal",
+      "Uses the expected company domain"
+    ],
+    "safeAction": "If the report is unfamiliar, verify it from the employee portal without using email links.",
+    "difficulty": "ADVANCED"
+  },
+  {
+    "id": 11,
+    "title": "Fake calendar cancellation",
+    "fromDisplay": "Meeting Notifications",
+    "fromEmail": "calendar-update@meeting-tools.invalid",
+    "subject": "Interview canceled — review new time",
+    "body": "Your interview has been canceled. The organizer proposed a new confidential time.\nSign in immediately to keep your interview slot:\n\nhttps://meeting-tools.invalid/reschedule",
+    "isPhishing": true,
+    "indicators": [
+      "Unexpected high-stakes schedule change",
+      "Generic organizer identity",
+      "Pressures the recipient to sign in immediately",
+      "Uses an unfamiliar scheduling domain"
+    ],
+    "safeAction": "Check the original calendar event or contact the recruiter using prior correspondence.",
+    "difficulty": "ADVANCED"
+  },
+  {
+    "id": 12,
+    "title": "Vendor maintenance confirmation",
+    "fromDisplay": "Example Cloud Status",
+    "fromEmail": "status@service.example",
+    "subject": "Maintenance completed successfully",
+    "body": "Scheduled maintenance completed at 02:15 UTC. All systems are operating normally.\nNo customer action is required. Current service status remains available from the\nstatus page bookmarked in your administrator console.",
+    "isPhishing": false,
+    "indicators": [
+      "Informational message with no requested action",
+      "Provides a specific completion time",
+      "Uses the expected service domain",
+      "References a known status page rather than embedding a link"
+    ],
+    "safeAction": "Confirm service status from the administrator console if operational impact is suspected.",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": 13,
+    "title": "QR code to view a shared document",
+    "fromDisplay": "Office Notices",
+    "fromEmail": "notices@office-qr.invalid",
+    "subject": "Scan the QR code to open the visitor sign-in form",
+    "body": "A new visitor sign-in form is available. Scan the QR code posted in the lobby to open it:\n\nhttps://office-qr.invalid/visitor-signin",
+    "isPhishing": true,
+    "indicators": [
+      "QR code hides the real destination until scanned",
+      "Unexpected sign-in form from a lobby poster",
+      "Sender domain does not match the company domain",
+      "Asks for credentials after scanning"
+    ],
+    "safeAction": "Open the visitor sign-in form from the company intranet instead of scanning a posted code.",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": 14,
+    "title": "Flood of sign-in approval prompts",
+    "fromDisplay": "IT Help Desk",
+    "fromEmail": "helpdesk@company-support.invalid",
+    "subject": "Approve the sign-in prompt to keep your account active",
+    "body": "We sent several sign-in approval prompts to your phone. Approve one now or reply with the 6-digit code from the prompt to confirm it was you:\n\nhttps://company-support.invalid/approve-signin",
+    "isPhishing": true,
+    "indicators": [
+      "Repeated approval prompts you did not start",
+      "Asks for the one-time code from an approval prompt",
+      "Pressure to approve quickly to keep the account active",
+      "Sender domain does not match the company domain"
+    ],
+    "safeAction": "Do not approve prompts you did not start. Report unexpected prompts through the official security channel.",
+    "difficulty": "ADVANCED"
+  },
+  {
+    "id": 15,
+    "title": "Overdue vendor invoice with new bank details",
+    "fromDisplay": "Vendor Billing",
+    "fromEmail": "billing@vendor-payments.invalid",
+    "subject": "Invoice INV-8842 overdue: updated payment details",
+    "body": "Invoice INV-8842 is overdue. We changed banks, so send payment to the new account below and confirm here:\n\nhttps://vendor-payments.invalid/pay-invoice",
+    "isPhishing": true,
+    "indicators": [
+      "Bank details changed without prior notice",
+      "Overdue-payment pressure",
+      "Payment link on an unfamiliar domain",
+      "No purchase order or prior invoice reference you recognize"
+    ],
+    "safeAction": "Verify the invoice and bank details with the vendor using a known phone number from prior invoices.",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": 16,
+    "title": "Job offer with an equipment fee",
+    "fromDisplay": "Talent Acquisition",
+    "fromEmail": "hiring@careers-fast.invalid",
+    "subject": "You are selected: pay the equipment deposit to start",
+    "body": "Congratulations, you were selected for the remote support role. Pay a $250 equipment deposit to receive your laptop and start Monday:\n\nhttps://careers-fast.invalid/onboarding",
+    "isPhishing": true,
+    "indicators": [
+      "Requests payment before starting a job",
+      "No interview took place",
+      "Generic role description and rushed start date",
+      "Sender domain does not match any known employer"
+    ],
+    "safeAction": "Verify the offer through the employer's official careers page and never pay to start a job.",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": 17,
+    "title": "Urgent charity donation appeal",
+    "fromDisplay": "Disaster Relief Fund",
+    "fromEmail": "donate@relief-fund.invalid",
+    "subject": "Donate now: families need help tonight",
+    "body": "Families affected by the storm need help tonight. Donate now with a card through our emergency appeal:\n\nhttps://relief-fund.invalid/donate-now",
+    "isPhishing": true,
+    "indicators": [
+      "Emotional urgency after a disaster",
+      "Donation link on an unfamiliar domain",
+      "No registered charity name or registration number",
+      "Pressures for immediate card payment"
+    ],
+    "safeAction": "Donate only through a charity you already know, reached from its official site.",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": 18,
+    "title": "Library due-date reminder",
+    "fromDisplay": "Example University Library",
+    "fromEmail": "library@university.example",
+    "subject": "Two items due back Friday",
+    "body": "Hello,\n\nTwo borrowed items are due back Friday. Renew them from your library account on the university portal or return them to the front desk.",
+    "isPhishing": false,
+    "indicators": [
+      "No request for sensitive information",
+      "Directs you to the known university portal",
+      "Expected institutional domain and calm tone"
+    ],
+    "safeAction": "Renew the items from your library account on the university portal.",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": 19,
+    "title": "Pay stub ready in the employee portal",
+    "fromDisplay": "Example Company Payroll",
+    "fromEmail": "payroll@company.example",
+    "subject": "Your latest pay stub is ready",
+    "body": "Hello,\n\nYour latest pay stub is ready. View it in the Payroll section of the employee portal. No action is required.",
+    "isPhishing": false,
+    "indicators": [
+      "References a routine payroll document",
+      "Does not request payment or credentials",
+      "Directs you to the known employee portal",
+      "Uses the expected company domain"
+    ],
+    "safeAction": "Open the employee portal from the company intranet to view the pay stub.",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": 20,
+    "title": "Managed software update available",
+    "fromDisplay": "Example Company IT",
+    "fromEmail": "it-updates@company.example",
+    "subject": "Software update available on your work laptop",
+    "body": "Hello,\n\nA software update is available for your work laptop. Install it from the managed Software Center app when ready. No sign-in link is needed.",
+    "isPhishing": false,
+    "indicators": [
+      "Directs you to the managed Software Center app",
+      "Does not include a sign-in link",
+      "Uses the expected company domain",
+      "No urgency or threat"
+    ],
+    "safeAction": "Install the update from the managed Software Center app on your laptop.",
+    "difficulty": "ADVANCED"
+  },
+  {
+    "id": 21,
+    "title": "Conference registration confirmation",
+    "fromDisplay": "Example Conference Team",
+    "fromEmail": "registration@conference.example",
+    "subject": "Registration confirmed: CONF-2210",
+    "body": "Hello,\n\nYour conference registration is confirmed (CONF-2210). View your ticket and schedule from the conference site you registered on. No action is required.",
+    "isPhishing": false,
+    "indicators": [
+      "References a specific confirmation number",
+      "Does not request payment or credentials",
+      "Directs you to the site you registered on",
+      "Uses the expected conference domain"
+    ],
+    "safeAction": "If the registration is unfamiliar, check it from the conference site you used.",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": 22,
+    "title": "Bank scheduled maintenance notice",
+    "fromDisplay": "Example Bank Alerts",
+    "fromEmail": "alerts@bank.example",
+    "subject": "Scheduled maintenance Sunday 2:00-4:00 AM",
+    "body": "Hello,\n\nOnline banking will be unavailable Sunday from 2:00 AM to 4:00 AM for scheduled maintenance. No action is required. We never ask for your password by email.",
+    "isPhishing": false,
+    "indicators": [
+      "Informational message with no requested action",
+      "Provides a specific maintenance window",
+      "Uses the expected bank domain",
+      "Clear safety reminder"
+    ],
+    "safeAction": "Plan around the maintenance window; confirm it from the bank's official app if needed.",
+    "difficulty": "INTERMEDIATE"
+  }
+]
