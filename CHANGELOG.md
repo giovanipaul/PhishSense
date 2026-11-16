@@ -4,6 +4,7 @@
 
 ### Added
 
+- Scheduled keep-alive ping every 5 minutes to prevent Render free-tier cold starts
 - Personalized learner report with difficulty-level performance and focused review guidance
 - Private, 30-day browser progress persistence with an HttpOnly first-party cookie
 - Focused review flow for missed scenarios
