@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - run: curl --fail --silent --show-error --max-time 50 https://phishsense-7ado.onrender.com
+      - run: curl --fail --silent --show-error --max-time 120 https://phishsense-7ado.onrender.com
