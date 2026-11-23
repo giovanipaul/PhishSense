@@ -14,7 +14,8 @@
       "Non-official domain"
     ],
     "safeAction": "Open the official portal from a saved bookmark and review recent sign-ins.",
-    "difficulty": "BEGINNER"
+    "difficulty": "BEGINNER",
+    "tactics": ["DOMAIN_DECEPTION", "URGENCY_AND_PRESSURE", "CREDENTIAL_HARVESTING", "IMPERSONATION"]
   },
   {
     "id": 2,
@@ -47,7 +48,8 @@
       "Pressure to act"
     ],
     "safeAction": "Open the carrier's official app and look up the tracking number there.",
-    "difficulty": "BEGINNER"
+    "difficulty": "BEGINNER",
+    "tactics": ["DOMAIN_DECEPTION", "URGENCY_AND_PRESSURE", "FINANCIAL_FRAUD"]
   },
   {
     "id": 4,
@@ -80,7 +82,8 @@
       "Imposes an unusually short deadline"
     ],
     "safeAction": "Contact payroll using the number in the employee directory, not the message.",
-    "difficulty": "INTERMEDIATE"
+    "difficulty": "INTERMEDIATE",
+    "tactics": ["DOMAIN_DECEPTION", "URGENCY_AND_PRESSURE", "CREDENTIAL_HARVESTING", "FINANCIAL_FRAUD"]
   },
   {
     "id": 6,
@@ -114,7 +117,8 @@
       "Requests a sign-in after an unexpected share"
     ],
     "safeAction": "Open the organization's approved document service directly and check shared files.",
-    "difficulty": "INTERMEDIATE"
+    "difficulty": "INTERMEDIATE",
+    "tactics": ["DOMAIN_DECEPTION", "URGENCY_AND_PRESSURE", "CREDENTIAL_HARVESTING"]
   },
   {
     "id": 8,
@@ -148,7 +152,8 @@
       "Sender address does not use the company domain"
     ],
     "safeAction": "Verify the request with the executive through a known phone number or assistant.",
-    "difficulty": "ADVANCED"
+    "difficulty": "ADVANCED",
+    "tactics": ["DOMAIN_DECEPTION", "URGENCY_AND_PRESSURE", "FINANCIAL_FRAUD", "IMPERSONATION"]
   },
   {
     "id": 10,
@@ -182,7 +187,8 @@
       "Uses an unfamiliar scheduling domain"
     ],
     "safeAction": "Check the original calendar event or contact the recruiter using prior correspondence.",
-    "difficulty": "ADVANCED"
+    "difficulty": "ADVANCED",
+    "tactics": ["DOMAIN_DECEPTION", "URGENCY_AND_PRESSURE", "CREDENTIAL_HARVESTING", "IMPERSONATION"]
   },
   {
     "id": 12,
@@ -216,7 +222,8 @@
       "Asks for credentials after scanning"
     ],
     "safeAction": "Open the visitor sign-in form from the company intranet instead of scanning a posted code.",
-    "difficulty": "INTERMEDIATE"
+    "difficulty": "INTERMEDIATE",
+    "tactics": ["DOMAIN_DECEPTION", "CREDENTIAL_HARVESTING", "IMPERSONATION"]
   },
   {
     "id": 14,
@@ -233,7 +240,8 @@
       "Sender domain does not match the company domain"
     ],
     "safeAction": "Do not approve prompts you did not start. Report unexpected prompts through the official security channel.",
-    "difficulty": "ADVANCED"
+    "difficulty": "ADVANCED",
+    "tactics": ["DOMAIN_DECEPTION", "URGENCY_AND_PRESSURE", "CREDENTIAL_HARVESTING", "IMPERSONATION"]
   },
   {
     "id": 15,
@@ -250,7 +258,8 @@
       "No purchase order or prior invoice reference you recognize"
     ],
     "safeAction": "Verify the invoice and bank details with the vendor using a known phone number from prior invoices.",
-    "difficulty": "INTERMEDIATE"
+    "difficulty": "INTERMEDIATE",
+    "tactics": ["DOMAIN_DECEPTION", "URGENCY_AND_PRESSURE", "FINANCIAL_FRAUD"]
   },
   {
     "id": 16,
@@ -267,7 +276,8 @@
       "Sender domain does not match any known employer"
     ],
     "safeAction": "Verify the offer through the employer's official careers page and never pay to start a job.",
-    "difficulty": "BEGINNER"
+    "difficulty": "BEGINNER",
+    "tactics": ["DOMAIN_DECEPTION", "URGENCY_AND_PRESSURE", "FINANCIAL_FRAUD", "IMPERSONATION"]
   },
   {
     "id": 17,
@@ -284,7 +294,8 @@
       "Pressures for immediate card payment"
     ],
     "safeAction": "Donate only through a charity you already know, reached from its official site.",
-    "difficulty": "BEGINNER"
+    "difficulty": "BEGINNER",
+    "tactics": ["DOMAIN_DECEPTION", "URGENCY_AND_PRESSURE", "FINANCIAL_FRAUD"]
   },
   {
     "id": 18,

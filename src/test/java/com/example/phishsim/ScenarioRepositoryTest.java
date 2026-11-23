@@ -124,6 +124,7 @@ class ScenarioRepositoryTest {
     private static Scenario scenario(int id, boolean phishing, Difficulty difficulty) {
         return new Scenario(id, "title", "from", "sender@sender.example", "subject",
                 phishing ? "see https://sender.invalid/info" : "body",
-                phishing, List.of("one", "two", "three"), "safe action", difficulty);
+                phishing, List.of("one", "two", "three"), "safe action", difficulty,
+                phishing ? List.of(PhishingTactic.DOMAIN_DECEPTION) : List.of());
     }
 }
