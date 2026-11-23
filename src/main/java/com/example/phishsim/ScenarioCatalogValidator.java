@@ -41,6 +41,11 @@ final class ScenarioCatalogValidator {
                 "Scenario sender domains must use .example or .invalid.");
         if (scenario.isPhishing()) {
             require(scenario.body().contains(".invalid"), "Phishing scenarios must use .invalid links.");
+            require(scenario.tactics() != null && !scenario.tactics().isEmpty(),
+                    "Every phishing scenario needs at least one tactic.");
+        } else {
+            require(scenario.tactics() == null || scenario.tactics().isEmpty(),
+                    "Legitimate scenarios cannot have phishing tactics.");
         }
     }
 

@@ -28,6 +28,13 @@ class TrainingReportTest {
                         org.assertj.core.groups.Tuple.tuple("Beginner", 1, 0),
                         org.assertj.core.groups.Tuple.tuple("Intermediate", 1, 1),
                         org.assertj.core.groups.Tuple.tuple("Advanced", 1, 0));
+        assertThat(report.tacticBreakdown())
+                .extracting(TrainingReport.TacticPerformance::label,
+                        TrainingReport.TacticPerformance::answered,
+                        TrainingReport.TacticPerformance::correct)
+                .contains(
+                        org.assertj.core.groups.Tuple.tuple("Domain deception", 1, 0),
+                        org.assertj.core.groups.Tuple.tuple("Credential harvesting", 1, 0));
     }
 
     @Test
@@ -38,5 +45,25 @@ class TrainingReportTest {
         assertThat(report.phishingSignalsToReview()).isEmpty();
         assertThat(report.difficultyBreakdown())
                 .allSatisfy(difficulty -> assertThat(difficulty.accuracyPercentage()).isZero());
+        assertThat(report.tacticBreakdown())
+                .allSatisfy(tactic -> assertThat(tactic.accuracyPercentage()).isZero());
+    }
+
+    @Test
+    void aggregatesRecognitionAcrossScenariosThatShareATactic() {
+        var state = new TrainingState();
+        state.recordAnswer(1, false);
+        state.recordAnswer(3, true);
+
+        var report = TrainingReport.from(state, repository.findAll());
+
+        assertThat(report.tacticBreakdown())
+                .filteredOn(tactic -> tactic.label().equals("Domain deception"))
+                .singleElement()
+                .satisfies(tactic -> {
+                    assertThat(tactic.answered()).isEqualTo(2);
+                    assertThat(tactic.correct()).isEqualTo(1);
+                    assertThat(tactic.accuracyPercentage()).isEqualTo(50);
+                });
     }
 }

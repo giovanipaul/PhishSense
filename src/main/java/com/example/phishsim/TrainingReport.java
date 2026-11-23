@@ -10,6 +10,7 @@ import java.util.Map;
  */
 public record TrainingReport(
         List<DifficultyPerformance> difficultyBreakdown,
+        List<TacticPerformance> tacticBreakdown,
         int missedPhishing,
         int missedLegitimate,
         List<String> phishingSignalsToReview,
@@ -20,6 +21,9 @@ public record TrainingReport(
         Map<Integer, Boolean> answers = state.getAnsweredCorrectly();
         List<DifficultyPerformance> breakdown = Arrays.stream(Difficulty.values())
                 .map(difficulty -> performanceFor(difficulty, scenarios, answers))
+                .toList();
+        List<TacticPerformance> tactics = Arrays.stream(PhishingTactic.values())
+                .map(tactic -> performanceFor(tactic, scenarios, answers))
                 .toList();
 
         int missedPhishing = (int) scenarios.stream()
@@ -38,7 +42,7 @@ public record TrainingReport(
                 .limit(6)
                 .toList();
 
-        return new TrainingReport(breakdown, missedPhishing, missedLegitimate, phishingSignals,
+        return new TrainingReport(breakdown, tactics, missedPhishing, missedLegitimate, phishingSignals,
                 focusMessage(state.getTotalAnswered(), missedPhishing, missedLegitimate));
     }
 
@@ -51,6 +55,18 @@ public record TrainingReport(
                 .toList();
         int correct = (int) results.stream().filter(Boolean::booleanValue).count();
         return new DifficultyPerformance(difficulty.label(), results.size(), correct);
+    }
+
+    private static TacticPerformance performanceFor(
+            PhishingTactic tactic, List<Scenario> scenarios, Map<Integer, Boolean> answers) {
+        List<Boolean> results = scenarios.stream()
+                .filter(Scenario::isPhishing)
+                .filter(scenario -> scenario.tactics().contains(tactic))
+                .map(scenario -> answers.get(scenario.id()))
+                .filter(result -> result != null)
+                .toList();
+        int correct = (int) results.stream().filter(Boolean::booleanValue).count();
+        return new TacticPerformance(tactic.label(), results.size(), correct);
     }
 
     private static String focusMessage(int answered, int missedPhishing, int missedLegitimate) {
@@ -70,6 +86,12 @@ public record TrainingReport(
     }
 
     public record DifficultyPerformance(String label, int answered, int correct) {
+        public int accuracyPercentage() {
+            return answered == 0 ? 0 : correct * 100 / answered;
+        }
+    }
+
+    public record TacticPerformance(String label, int answered, int correct) {
         public int accuracyPercentage() {
             return answered == 0 ? 0 : correct * 100 / answered;
         }
